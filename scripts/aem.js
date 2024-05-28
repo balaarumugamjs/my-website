@@ -153,11 +153,14 @@ function setup() {
   window.hlx.RUM_MASK_URL = 'full';
   window.hlx.codeBasePath = '';
   window.hlx.lighthouse = new URLSearchParams(window.location.search).get('lighthouse') === 'on';
+ // alert("222222");
 
   const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]');
   if (scriptEl) {
     try {
+    //  alert("333333");
       [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
+     // alert([window.hlx.codeBasePath]);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error);
@@ -170,6 +173,7 @@ function setup() {
  */
 
 function init() {
+  //alert("1111111");
   setup();
   sampleRUM('top');
 
@@ -257,6 +261,7 @@ function readBlockConfig(block) {
  * @param {string} href URL to the CSS file
  */
 async function loadCSS(href) {
+  //alert("loadcss");
   return new Promise((resolve, reject) => {
     if (!document.querySelector(`head > link[href="${href}"]`)) {
       const link = document.createElement('link');
@@ -591,6 +596,7 @@ function updateSectionsStatus(main) {
  * @param {*} content two dimensional array or string or object of content
  */
 function buildBlock(blockName, content) {
+ // alert("blockname")
   const table = Array.isArray(content) ? content : [[content]];
   const blockEl = document.createElement('div');
   // build image block nested div structure
@@ -601,9 +607,12 @@ function buildBlock(blockName, content) {
       const colEl = document.createElement('div');
       const vals = col.elems ? col.elems : [col];
       vals.forEach((val) => {
+        
         if (val) {
+          alert("77777");
           if (typeof val === 'string') {
-            colEl.innerHTML += val;
+            alert("88888888");
+            colEl.innerHTML += val+'666666666666666666';
           } else {
             colEl.appendChild(val);
           }
@@ -621,12 +630,16 @@ function buildBlock(blockName, content) {
  * @param {Element} block The block element
  */
 async function loadBlock(block) {
+  
   const status = block.dataset.blockStatus;
   if (status !== 'loading' && status !== 'loaded') {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
+    //alert("block : "+blockName);
     try {
+    
       const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
+    
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
@@ -661,7 +674,6 @@ async function loadBlocks(main) {
   updateSectionsStatus(main);
   const blocks = [...main.querySelectorAll('div.block')];
   for (let i = 0; i < blocks.length; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
     await loadBlock(blocks[i]);
     updateSectionsStatus(main);
   }
@@ -699,6 +711,7 @@ function decorateBlocks(main) {
  * @returns {Promise}
  */
 async function loadHeader(header) {
+  //alert("loadHeader");
   const headerBlock = buildBlock('header', '');
   header.append(headerBlock);
   decorateBlock(headerBlock);
@@ -711,6 +724,7 @@ async function loadHeader(header) {
  * @returns {Promise}
  */
 async function loadFooter(footer) {
+  //alert("loadFooter");
   const footerBlock = buildBlock('footer', '');
   footer.append(footerBlock);
   decorateBlock(footerBlock);

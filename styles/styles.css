@@ -25,7 +25,7 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
+  --body-font-size-m: 16px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
 
@@ -169,7 +169,7 @@ a.button.secondary, button.secondary {
 }
 
 main img {
-  max-width: 100%;
+
   width: auto;
   height: auto;
 }
@@ -207,4 +207,15 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+main .fldset-class{
+  border: 5px black lighter;
+}
+main .legend-class{
+
+  margin-left: 1em; 
+  padding: 0.2em 0.8em;
+  background-color:white;
+  color:black;
 }
