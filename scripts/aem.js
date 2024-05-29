@@ -725,10 +725,10 @@ async function loadHeader(header) {
  */
 async function loadFooter(footer) {
   //alert("loadFooter");
-  const footerBlock = buildBlock('footer', '');
-  footer.append(footerBlock);
-  decorateBlock(footerBlock);
-  return loadBlock(footerBlock);
+  // const footerBlock = buildBlock('footer', '');
+  // footer.append(footerBlock);
+  // decorateBlock(footerBlock);
+  // return loadBlock(footerBlock);
 }
 
 /**

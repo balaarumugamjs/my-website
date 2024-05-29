@@ -8,7 +8,7 @@ export default function decorate(block) {
     [...row.children].forEach((col) => {
       const pic = col.querySelector('picture');
       if (pic) {
-        const picWrapper = pic.closest('div');;
+        const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
           picWrapper.classList.add('columns-img-col');
@@ -16,16 +16,16 @@ export default function decorate(block) {
       
         }
       }
-      const p = col.querySelector('p');
+      const headTextH2 = col.querySelector('h2');
+      const headTextParagraph = col.querySelector('p');
 
-      if(p){
-
-        const pp = p.closest('div');
-        pp.classList.add('testheader-body');
-        
-      
-
+      if(headTextH2){
+          headTextH2.classList.add('testheader-h2');
       }
+
+      if(headTextParagraph){
+        headTextParagraph.classList.add('testheader-p');
+    }
 
 
     });

@@ -31,10 +31,15 @@
     order: unset;
   }
 
-  .testheader .testheader-body {
-  font-size: 30px;
+  .testheader .testheader-h2 {
+
   line-height: 10px;
   }
+
+  .testheader .testheader-p {
+    font-size: 20px;
+    
+    }
 
  .testheader testheader-div-image {
     width: 200px;
